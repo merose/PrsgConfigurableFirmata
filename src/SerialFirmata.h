@@ -17,11 +17,14 @@
 
 #include <ConfigurableFirmata.h>
 #include "FirmataFeature.h"
+
+#if 0 // Disable software serial, since it conflicts with EnableInterrupt.
 // SoftwareSerial is currently only supported for AVR-based boards and the Arduino 101
 // The third condition checks if the IDE is in the 1.0.x series, if so, include SoftwareSerial
 #if defined(ARDUINO_ARCH_AVR) || defined(ARDUINO_ARCH_ARC32) || (ARDUINO >= 100 && ARDUINO < 10500)
 #include <SoftwareSerial.h>
 #endif
+#endif //0
 
 // uncomment FIRMATA_SERIAL_PORT_RX_BUFFERING to collect bytes received by serial port until the
 // receive buffer gets filled or a data gap is detected to avoid forwarding single bytes at baud
